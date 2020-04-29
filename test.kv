@@ -1,0 +1,81 @@
+#:kivy 1.11.0
+
+
+<AddTextButton>:
+    size_hint: None, None
+    size: 70, 70
+    Button:
+        
+
+
+<MainScreen@Screen>:
+    name: "main"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Learn it!"
+
+        FloatLayout:
+            ScrollView:
+                MDLabel:
+                    text: "main"
+
+            MDRoundFlatIconButton:
+                icon: "plus"
+                pos_hint: {"right": (self.parent.width - 30) / self.parent.width, "y": 30 / self.parent.height}
+                width: self.height
+
+
+<SettingsScreen@Screen>:
+    name: "settings"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Настройки"
+
+        BoxLayout:
+            MDFlatButton:
+                text: "settings"
+
+
+<NavigationDrawerLogo@Image>:
+    size_hint: None, None
+    width: self.parent.width
+    height: self.parent.width / self.image_ratio
+    source: "res/book.jpg"
+
+
+NavigationLayout:
+    ScreenManager:
+        id: screen_manager
+
+        MainScreen:
+        SettingsScreen:
+
+    MDNavigationDrawer:
+        id: nav_drawer
+
+        BoxLayout:
+            orientation: "vertical"
+
+            NavigationDrawerLogo:
+
+            MDList:
+                OneLineListItem:
+                    text: "Главное меню"
+                    on_release:
+                        nav_drawer.set_state("close")
+                        screen_manager.current = "main"
+
+                OneLineListItem:
+                    text: "Настройки"
+                    on_release:
+                        nav_drawer.set_state("close")
+                        screen_manager.current = "settings"
+
+            # just for keep all at the top
+            BoxLayout:
