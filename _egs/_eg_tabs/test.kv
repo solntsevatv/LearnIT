@@ -1,0 +1,29 @@
+#:kivy 1.11.0
+
+<LearningTab>:
+    MDIconButton:
+    	id: icon
+        icon: "book-open-page-variant"
+        user_font_size: "48sp"
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+<TextsListTab>:
+
+<SettingsTab>:
+    Label:
+        text: "Settings will be here soon"
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+BoxLayout:
+    orientation: "vertical"
+
+    MDToolbar:
+        title: "Learn it!"
+
+    MDTabs:
+    	LearningTab:
+    	    text: "book-open-page-variant"
+    	TextsListTab:
+    	    text: "note-text"
+        SettingsTab:
+            text: "settings"
