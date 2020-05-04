@@ -23,13 +23,13 @@ Builder.load_string("""
                 text: "Главное меню"
                 on_release:
                     nav_drawer.set_state("close")
-                    screen_manager.current = "main"
+                    app.open_textslist()
 
             OneLineListItem:
                 text: "Настройки"
                 on_release:
                     nav_drawer.set_state("close")
-                    screen_manager.current = "settings"
+                    app.open_settings()
 
         # just for keep all at the top
         BoxLayout:

@@ -13,11 +13,9 @@ Builder.load_string("""
     pos_hint: {"right": (self.parent.width - 30) / self.parent.width, "y": 30 / self.parent.height}
     width: self.height
     on_release:
-        self.screen_manager.current = "addingtext"
+        app.open_addtext()
 
 <TextsListScreen@Screen>:
-    name: "main"
-
     BoxLayout:
         orientation: "vertical"
 
@@ -37,7 +35,6 @@ Builder.load_string("""
                     TextCard:
 
             AddTextButton:
-                screen_manager: root.manager
 
 """, filename="textslistscreen.kv")
 

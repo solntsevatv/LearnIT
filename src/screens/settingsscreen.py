@@ -7,8 +7,6 @@ from src.cards.text import TextCard
 Builder.load_string("""
 
 <SettingsScreen>:
-    name: "settings"
-
     BoxLayout:
         orientation: "vertical"
 
