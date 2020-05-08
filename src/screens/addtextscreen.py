@@ -8,7 +8,6 @@ Builder.load_string("""
 
 
 <AddTextScreen@Screen>:
-    name: "addingtext"
     BoxLayout:
         orientation: "vertical"
 
@@ -19,6 +18,8 @@ Builder.load_string("""
                 user_font_size: "45sp"
                 icon: "check"
                 pos_hint: {"right": 1 - 20 / self.parent.width, "center_y": 0.5}
+                on_release:
+                    app.confirm_text_input()
 
         MDTextField:
             hint_text: "Название"
