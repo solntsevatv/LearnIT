@@ -11,6 +11,8 @@ from src.screens.addtextscreen import AddTextScreen
 
 from src.navlayout import NavLayout
 
+from src.cards.text import TextCard
+
 Window.size = (360, 720)
 
 
@@ -22,6 +24,7 @@ NavigationLayout:
 
         TextsListScreen:
             name: "textslist"
+            id: texts_screen
         AddTextScreen:
             name: "addtext"
         SettingsScreen:
@@ -65,6 +68,10 @@ class MainApp(MDApp):
 
     def open_settings(self):
         self.root.ids.screen_manager.current = "settings"
+
+    def save_text(self):
+        self.root.ids.texts_screen.add_widget(TextCard())
+        pass
 
 
 MainApp().run()

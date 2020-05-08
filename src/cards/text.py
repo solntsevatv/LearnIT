@@ -11,6 +11,9 @@ Builder.load_string("""
 
     padding: 20, 0
 
+    on_release:
+        app.open_addtext()
+
     BoxLayout:
         orientation: "vertical"
 
@@ -19,6 +22,7 @@ Builder.load_string("""
 
         MDLabel:
             text: "Автор"
+    
 
 """, filename="text.py")
 

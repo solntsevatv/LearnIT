@@ -6,6 +6,14 @@ from src.cards.text import TextCard
 
 Builder.load_string("""
 
+<SaveTextButton@MDIconButton>:
+    user_font_size: "45sp"
+    icon: "check"
+    pos_hint: {"right": 1 - 20 / self.parent.width, "center_y": 0.5}
+    on_release:
+        app.save_text()
+        app.confirm_text_input()
+
 
 <AddTextScreen@Screen>:
     BoxLayout:
@@ -14,12 +22,8 @@ Builder.load_string("""
         MDToolbar:
             title: "Learn it!"
             #save text
-            MDIconButton:
-                user_font_size: "45sp"
-                icon: "check"
-                pos_hint: {"right": 1 - 20 / self.parent.width, "center_y": 0.5}
-                on_release:
-                    app.confirm_text_input()
+            SaveTextButton:
+                
 
         MDTextField:
             hint_text: "Название"
