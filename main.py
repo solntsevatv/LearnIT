@@ -12,6 +12,7 @@ from src.screens.addtextscreen import AddTextScreen
 from src.navlayout import NavLayout
 
 from src.cards.text import TextCard
+from src.basetext import BaseText
 
 Window.size = (360, 720)
 
@@ -22,13 +23,12 @@ NavigationLayout:
     ScreenManager:
         id: screen_manager
 
-        TextsListScreen:
-            name: "textslist"
-            id: texts_screen
-        AddTextScreen:
-            name: "addtext"
-        SettingsScreen:
-            name: "settings"
+        # TextsListScreen:
+        #     name: "textslist"
+        # AddTextScreen:
+        #     name: "addtext"
+        # SettingsScreen:
+        #     name: "settings"
 
     NavLayout:
 
@@ -42,7 +42,7 @@ class Colours:
 
 
 class MainApp(MDApp):
-    store = JsonStore("texts.json")
+    store = JsonStore("data.json")
 
     def __init__(self, **kwargs):
         self.theme_cls.primary_palette = "DeepOrange"
@@ -54,8 +54,22 @@ class MainApp(MDApp):
         else:
             self.theme_cls.theme_style = "Light"
 
+    def build_screens(self):
+        screen_manager = self.root.ids.screen_manager
+
+        self.textslistscreen = TextsListScreen(name="textslist")
+        screen_manager.add_widget(self.textslistscreen)
+        
+        self.addtextscreen = AddTextScreen(name="addtext")
+        screen_manager.add_widget(self.addtextscreen)
+
+        self.settingsscreen = SettingsScreen(name="settings")
+        screen_manager.add_widget(self.settingsscreen)
+
     def build(self):
         self.root = Builder.load_string(main_kv, filename="main.kv")
+        self.build_screens()
+        self.load_all_texts_from_storage()
 
     def open_textslist(self):
         self.root.ids.screen_manager.current = "textslist"
@@ -69,9 +83,14 @@ class MainApp(MDApp):
     def open_settings(self):
         self.root.ids.screen_manager.current = "settings"
 
+    def load_all_texts_from_storage(self):
+        for text_data in self.store["texts"]:
+            base_text = BaseText(**text_data)
+            self.textslistscreen.add_text(base_text)
+
     def save_text(self):
-        self.root.ids.texts_screen.add_widget(TextCard())
-        pass
+        base_text = BaseText(....)
+        self.textslistscreen.add_text(base_text)
 
 
 MainApp().run()

@@ -18,9 +18,11 @@ Builder.load_string("""
         orientation: "vertical"
 
         MDLabel:
+            id: title
             text: "Название текста"
 
         MDLabel:
+            id: author
             text: "Автор"
     
 
@@ -28,4 +30,12 @@ Builder.load_string("""
 
 
 class TextCard(MDCard):
-	pass
+    base_text = None
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def assign_base_text(self, base_text):
+        self.base_text = base_text
+        self.ids.title.text = str(self.base_text.title)
+        self.ids.author.text = str(self.base_text.author)

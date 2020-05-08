@@ -1,0 +1,13 @@
+{
+	"texts": [
+		{
+			"title": "text 1",
+			"author": "author 1",
+			"units": [
+				"hello,",
+				"my dear",
+				"world!"
+			]
+		}
+	]
+}

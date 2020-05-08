@@ -2,6 +2,8 @@ from kivy.uix.screenmanager import Screen
 from kivy.lang.builder import Builder
 
 from src.cards.text import TextCard
+from src.basetext import BaseText
+
 
 
 Builder.load_string("""
@@ -25,19 +27,21 @@ Builder.load_string("""
         FloatLayout:
             ScrollView:
                 MDGridLayout:
+                    id: texts_layout
                     cols: 1
                     adaptive_height: True
                     padding: 10, 20
                     spacing: 20, 20
 
-                    TextCard:
-                    TextCard:
-                    TextCard:
+                    # TextCard:
 
             AddTextButton:
 
-""", filename="textslistscreen.kv")
+""", filename="textslist.kv")
 
 
 class TextsListScreen(Screen):
-	pass
+    def add_text(self, base_text):
+        text_card = TextCard()
+        text_card.assign_base_text(base_text)
+        self.ids.texts_layout.add_widget(text_card)
