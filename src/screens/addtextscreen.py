@@ -1,8 +1,9 @@
 from kivy.uix.screenmanager import Screen
+from src.screens.textslistscreen import TextsListScreen
 from kivy.lang.builder import Builder
 
 from src.cards.text import TextCard
-
+from src.basetext import BaseText
 
 Builder.load_string("""
 
@@ -21,11 +22,11 @@ Builder.load_string("""
 
         MDToolbar:
             title: "Learn it!"
-            #save text
             SaveTextButton:
                 
 
         MDTextField:
+            id: name
             hint_text: "Название"
             mode: "rectangle"
             size_hint: 1 - 40 / self.parent.width, None
@@ -33,6 +34,15 @@ Builder.load_string("""
             icon_right_color: app.theme_cls.primary_color
 
         MDTextField:
+            id: author
+            hint_text: "Автор"
+            mode: "rectangle"
+            size_hint: 1 - 40 / self.parent.width, None
+            pos_hint: {"center_x": 0.5}
+            icon_right_color: app.theme_cls.primary_color
+
+        MDTextField:
+            id: text_input
             hint_text: "Текст"
             mode: "rectangle"
             multiline: True
@@ -44,4 +54,4 @@ Builder.load_string("""
 
 
 class AddTextScreen(Screen):
-	pass
+    pass

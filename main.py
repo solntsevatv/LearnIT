@@ -87,9 +87,13 @@ class MainApp(MDApp):
         for text_data in self.store["texts"]:
             base_text = BaseText(**text_data)
             self.textslistscreen.add_text(base_text)
-
+    
     def save_text(self):
-        base_text = BaseText(....)
+        title = self.addtextscreen.ids.name.text
+        author = self.addtextscreen.ids.author.text
+        text = self.addtextscreen.ids.text_input.text
+        base_text = BaseText(title = title, author = author, units = [text])
+        #self.store.put('texts', title = title, author = author, text = text)
         self.textslistscreen.add_text(base_text)
 
 
