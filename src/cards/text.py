@@ -12,6 +12,7 @@ Builder.load_string("""
     pos_hint: {"center_x": 0.9, "center_y": 0.78}
     on_release:
         self.parent.delete_card()
+        app.textslistscreen.ids.texts_layout.remove_widget(self.parent)
 
 <TextCard>:
     size_hint: 1, None

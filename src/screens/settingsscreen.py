@@ -28,6 +28,7 @@ Builder.load_string("""
                     text: "Удалить все тексты"
                     on_release:
                         app.store.clear()
+                        app.textslistscreen.ids.texts_layout.clear_widgets()
                     md_color:
 
 """, filename="textslistscreen.kv")

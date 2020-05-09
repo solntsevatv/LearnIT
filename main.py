@@ -103,6 +103,9 @@ class MainApp(MDApp):
         base_text = BaseText(text_dict)
         self.textslistscreen.add_text(base_text)
 
+    # редактирование происходит следующим образом: если автор и название текста те же,
+    # то старая карточка удаляется, а новая остается, если меняются автор и название, то
+    # появляется новая карточка. Думаю, это нужно будет исправить, но пока так :)
     def edit_text(self, title, author):
         self.root.ids.screen_manager.current = "addtext"
         self.addtextscreen.clear_text_fields()
