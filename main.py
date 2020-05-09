@@ -96,13 +96,19 @@ class MainApp(MDApp):
 
         # добавили в data.json текст
         text_dict = dict(title = name, author = author, units = [text])
-        num = self.store.count()
-        self.store.put(str(num), title = '')
-        self.store[str(num)] = text_dict
+        self.store.put(name + ' ' + author, title = '')
+        self.store[name + ' ' + author] = text_dict
 
         # base_text
         base_text = BaseText(text_dict)
         self.textslistscreen.add_text(base_text)
+
+    def edit_text(self, title, author):
+        self.root.ids.screen_manager.current = "addtext"
+        self.addtextscreen.clear_text_fields()
+        self.addtextscreen.ids.name.insert_text(title)
+        self.addtextscreen.ids.author.insert_text(author)
+        self.addtextscreen.ids.text_input.insert_text(self.store[title + ' ' + author]["units"][0])
 
 
 MainApp().run()

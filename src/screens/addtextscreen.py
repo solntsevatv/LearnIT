@@ -14,6 +14,7 @@ Builder.load_string("""
     on_release:
         app.save_text()
         app.confirm_text_input()
+        app.addtextscreen.clear_text_fields()
 
 
 <AddTextScreen@Screen>:
