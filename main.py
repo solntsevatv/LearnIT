@@ -84,16 +84,24 @@ class MainApp(MDApp):
         self.root.ids.screen_manager.current = "settings"
 
     def load_all_texts_from_storage(self):
-        for text_data in self.store["texts"]:
-            base_text = BaseText(**text_data)
+        for key in self.store:
+            text_data = self.store[key]
+            base_text = BaseText(text_data)
             self.textslistscreen.add_text(base_text)
     
     def save_text(self):
-        title = self.addtextscreen.ids.name.text
+        name = self.addtextscreen.ids.name.text
         author = self.addtextscreen.ids.author.text
         text = self.addtextscreen.ids.text_input.text
-        base_text = BaseText(title = title, author = author, units = [text])
-        #self.store.put('texts', title = title, author = author, text = text)
+
+        # добавили в data.json текст
+        text_dict = dict(title = name, author = author, units = [text])
+        num = self.store.count()
+        self.store.put(str(num), title = '')
+        self.store[str(num)] = text_dict
+
+        # base_text
+        base_text = BaseText(text_dict)
         self.textslistscreen.add_text(base_text)
 
 

@@ -26,6 +26,8 @@ Builder.load_string("""
 
                 OneLineListItem:
                     text: "Удалить все тексты"
+                    on_release:
+                        app.store.clear()
                     md_color:
 
 """, filename="textslistscreen.kv")

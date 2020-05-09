@@ -1,5 +1,5 @@
 class BaseText:
-	def __init__(self, **kwargs):
+	def __init__(self, kwargs):
 		self.title = kwargs["title"]
 		self.author = kwargs["author"]
 		self.units = kwargs["units"]

@@ -54,4 +54,7 @@ Builder.load_string("""
 
 
 class AddTextScreen(Screen):
-    pass
+    def clear_text_fields(self):
+        self.ids.name.text = ''
+        self.ids.author.text = ''
+        self.ids.text_input.text = ''
