@@ -41,7 +41,24 @@ Builder.load_string("""
 
 
 class TextsListScreen(Screen):
+    cards_list = []
+
+    def clear_texts(self):
+        self.ids.texts_layout.clear_widgets()
+        self.cards_list.clear()
+
     def add_text(self, base_text):
-        text_card = TextCard()
+        text_card = TextCard(self)
         text_card.assign_base_text(base_text)
         self.ids.texts_layout.add_widget(text_card)
+        self.cards_list.append(text_card)
+
+    def refresh_texts(self, texts_data_list):
+        self.clear_texts()
+        for id, text_data in texts_data_list.items():
+            base_text = BaseText(id=id, **text_data)
+            self.add_text(base_text)
+
+    def remove_card(self, card):
+        self.cards_list.remove(card)
+        self.ids.texts_layout.remove_widget(card)

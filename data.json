@@ -1,1 +1,31 @@
-{"dfgdg dfgdf": {"title": "dfgdg", "author": "dfgdf", "units": ["gfbvcb"]}, "hm vmv": {"title": "hm", "author": "vmv", "units": ["bmvmv"]}, "d gdfd": {"title": "d", "author": "gdfd", "units": ["bgdf"]}}
+{
+	"texts":
+	{
+		"1588740292540343002":
+		{
+			"title": "new title",
+			"author": "new author",
+			"units": ["brand new text!"]
+		},
+		"5743755950733518085":
+		{
+			"title": "Yes?.. 0_0",
+			"author": "no!",
+			"units": ["nothing"]
+		},
+		"3786213519765440214":
+		{
+			"title": "new title",
+			"author": "WOWOAOW",
+			"units": ["wat&?!"]
+		},
+		"8441633607563162414":
+		{
+			"title": "cozzy",
+			"author": "WooZuu",
+			"units": ["UwU"]
+		}
+	},
+	"settings": {},
+	"progress": {}
+}

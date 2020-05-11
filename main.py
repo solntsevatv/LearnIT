@@ -76,6 +76,7 @@ class MainApp(MDApp):
 
     def open_addtext(self):
         self.root.ids.screen_manager.current = "addtext"
+        self.addtextscreen.add_new_text()
 
     def confirm_text_input(self):
         self.root.ids.screen_manager.current = "textslist"
@@ -84,34 +85,32 @@ class MainApp(MDApp):
         self.root.ids.screen_manager.current = "settings"
 
     def load_all_texts_from_storage(self):
-        for key in self.store:
-            text_data = self.store[key]
-            base_text = BaseText(text_data)
-            self.textslistscreen.add_text(base_text)
+        self.textslistscreen.refresh_texts(self.store["texts"])
     
-    def save_text(self):
-        name = self.addtextscreen.ids.name.text
-        author = self.addtextscreen.ids.author.text
-        text = self.addtextscreen.ids.text_input.text
-
+    def save_text(self, base_text):
         # добавили в data.json текст
-        text_dict = dict(title = name, author = author, units = [text])
-        self.store.put(name + ' ' + author, title = '')
-        self.store[name + ' ' + author] = text_dict
+        texts = self.store["texts"]
+        texts[str(base_text.id)] = base_text.to_dict()
+        self.store["texts"] = texts
+
+        # обновили список снова
+        self.load_all_texts_from_storage()
 
         # base_text
-        base_text = BaseText(text_dict)
-        self.textslistscreen.add_text(base_text)
+        # base_text = BaseText(text_dict)
+        # self.textslistscreen.add_text(base_text)
 
     # редактирование происходит следующим образом: если автор и название текста те же,
     # то старая карточка удаляется, а новая остается, если меняются автор и название, то
     # появляется новая карточка. Думаю, это нужно будет исправить, но пока так :)
-    def edit_text(self, title, author):
+    def edit_card(self, card):
         self.root.ids.screen_manager.current = "addtext"
-        self.addtextscreen.clear_text_fields()
-        self.addtextscreen.ids.name.insert_text(title)
-        self.addtextscreen.ids.author.insert_text(author)
-        self.addtextscreen.ids.text_input.insert_text(self.store[title + ' ' + author]["units"][0])
+        self.addtextscreen.edit_base_text(card.base_text)
+        # self.addtextscreen.clear_text_fields()
+        # self.addtextscreen.ids.name.insert_text(title)
+        # self.addtextscreen.ids.author.insert_text(author)
+        # self.addtextscreen.ids.text_input.insert_text(self.store[title + ' ' + author]["units"][0])
 
 
-MainApp().run()
+app = MainApp()
+app.run()
