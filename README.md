@@ -1,5 +1,29 @@
-# Learn it!
+# LearnIT
 
-This is a standard README.md file for further important information about this project.
+# Формулировка задачи: 
+Требуется написать приложение, которое позволяет с помощью технологий распознавания речи автоматизировать процесс заучивания текстов различной направленности:
+1. Стихов
+2. Публичных выступлений
+3. Текстов специального содержания
 
-For now this is like an empty file needed to make a commit to a new branch :)
+# Используемые технологии
+1. Front-End: фреймворк Python Kivi
+2. Back-End: технология распознавания речи Yandex SpeechKit
+3. Некоторые python-библиотеки(num2words, request, Speech_Recognizion)
+
+# Роли в команде
+1. Александр Прянишников (@pan19u609) - тим лид, связь с серверами Яндекс
+2. София Шелия (@shsm19u710) - обработка полученных данных от серверов Яндекса, хранение текстов
+3. Татьяна Солнцева (@stv19u648) - создание основы мобильного приложения, создание apk-файла
+4. Алексей Клименко (@kak19u485) - продумывание логики приложения, расставление кнопок, технический писатель
+5. Андрей Бугаенко (@bap19u750) - дизайнер, тестировщик
+
+Менторы:
+1. Артём Богаченко (@bogachenco)
+2. Артём Найденышев (@nao18u401)
+
+# Ссылка на первую презентацию
+https://docs.google.com/presentation/d/e/2PACX-1vQnshSu-kryEF2Syz31WB_xQtL6kUBZcwkE2Q3HCzGMAt6u2H6UVyBFiBN-CifZ94b8jWY9sHbt_AXx/pub?start=false&loop=false&delayms=3000
+
+# Ссылка на вторую презентацию
+https://docs.google.com/presentation/d/1_ITHAjxVJBTp0FzXIawx2_bPdIOWM2kh-5CdQb7qSv8/edit?usp=sharing

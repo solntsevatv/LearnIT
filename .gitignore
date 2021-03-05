@@ -4,3 +4,14 @@
 */*/*/*/__pycache__/
 .vscode/
 __pycache__/
+
+# exclude docs
+doc/html/*
+doc/latex/*
+# except main page and actual pdf file
+!doc/latex/refman.pdf
+
+env/
+/env
+
+audio.wav

@@ -26,10 +26,23 @@ Builder.load_string("""
                     app.open_textslist()
 
             OneLineListItem:
+                text: "Статистика"
+                on_release:
+                    nav_drawer.set_state("close")
+                    app.open_statistics()
+
+            OneLineListItem:
                 text: "Настройки"
                 on_release:
                     nav_drawer.set_state("close")
                     app.open_settings()
+            
+            OneLineListItem:
+                text: "Справка"
+                on_release:
+                    nav_drawer.set_state("close")
+                    app.open_manual()
+
 
         # just for keep all at the top
         BoxLayout:
