@@ -4,4 +4,4 @@ docutils==0.16
 idna==2.9
 Kivy==1.11.1
 Kivy-Garden==0.1.4
-Pygments==2.6.1
+Pygments==2.7.4
